@@ -1,2 +1,1 @@
-# lab_2 
-#Status Image
+# lab_2 Status Image
