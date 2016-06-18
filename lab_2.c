@@ -1,33 +1,36 @@
 #include <stdio.h>
 #include <math.h>
 
+void quad ( float a, float b, float c, float d )
+{
+	float x1, x2;
+	
+	if (d > 0) 
+	{
+		x1 = (-b + sqrt(d)) / (2 * a);
+		x2 = (-b - sqrt(d)) / (2 * a);
+		printf("x1 = %2.2f, x2 = %2.2f", x1, x2);
+	}
+	if (d == 0) 
+	{
+		x1 = -b / (2 * a);
+		printf("x1 = x2 = %2.2f", x1);
+	}
+	if (d < 0)
+		printf("no roots");
+}
+
 int main ()
 {
-	float a, b, c, D, d, x1, x2;
+	float a, b, c, D;
 	
 	printf ("Enter the variable value: ");
-	scanf ("%f %f %f", &a, &b, &c);
-	printf ("(%.1f)x^2+(%.1f)x+(%.1f)=0", a, b, c);
+	scanf("%f", &a);
+	scanf("%f", &b);
+	scanf("%f", &c);
 	
-	D=pow(b,2)-4*a*c;
-	printf("\nDiscriminant is %.1f", D);
-	
-	if (D > 0)
-	{
-		d=sqrt(D);
-		x1=(-b+d)/(2*a);
-		x2=(-b-d)/(2*a);
-		printf ("\nx1 = %.1f; x2 = %.1f", x1, x2);
-	}
-	if (D == 0)
-	{
-		x1=x2=-b/(2*a);
-		printf ("\nx1 = %.1f; x2 = %.1f", x1, x2);
-	}
-	if (D < 0)
-	{
-		printf ("\nno solutions");
-	}
+	D = (b * b) - (4 * a * c);
+	quad (a, b, c, D);
 
 	return 0;
 }
